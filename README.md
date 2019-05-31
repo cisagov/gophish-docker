@@ -1,11 +1,9 @@
-# docker-postfix 🐳📮 #
+# docker-gophish 🐳🎣 #
 
-[![Build Status](https://travis-ci.com/cisagov/docker-postfix.svg?branch=develop)](https://travis-ci.com/cisagov/docker-postfix)
+[![Build Status](https://travis-ci.com/cisagov/docker-gophish.svg?branch=develop)](https://travis-ci.com/cisagov/docker-gophish)
 
 Creates a Docker container with an installation of the
-[postfix](http://postfix.org) MTA.  Additionally it has an IMAP
-server ([dovecot](https://dovecot.org)) for accessing the archvies
-of sent email.  All email is BCC'd to the `mailarchive` account.
+[gophish](https://getgophish.com) phishing framework.
 
 ## Usage ##
 
@@ -16,34 +14,27 @@ To build and start the container use the command: `docker-compose up`
 
 This container exposes the following ports:
 
-- 25: `smtp`
-- 587: `submission`
-- 993: `imaps`
+- 3333: `admin server`
+- 8080: `phish server`
 
 The sample [docker composition](docker-compose.yml) publishes the
-exposed ports at 1025, 1587, and 1993.
+exposed ports at 3333, and 3380 respectively.
 
 ### Environment Variables ###
 
-Two environment variables are used to generate the configurations at runtime:
-
-- `PRIMARY_DOMAIN`: the domain of the mail server
-- `RELAY_IP`: (optional) an IP address that is allowed to relay mail without authentication
+None.
 
 ### Secrets ###
 
-- `fullchain.pem`: public key
-- `privkey.pem`: private key
-- `users.txt`: account credentials to create at startup
+- `config.json`: gophish configuration file
+- `admin_fullchain.pem`: public key for admin port
+- `admin_privkey.pem`: private key for admin port
+- `phish_fullchain.pem`: public key for phishing port
+- `phish_privkey.pem`: private key for phishing port
 
 ### Volumes ###
 
-Two optional volumes can be attached to this container to persist the
-mail spool directory, as well as the logging directory.  (Note that
-the mail logs are available using the docker log command.)
-
-- `/var/spool/postfix`: mail queues
-- `/var/log`: system logs
+None.
 
 ## Contributing ##
 
