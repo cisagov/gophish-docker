@@ -5,7 +5,7 @@ python: 3.7
 services: docker
 env:
   global:
-    - IMAGE_NAME=dhsncats/postfix
+    - IMAGE_NAME=dhsncats/gophish
     - DOCKER_USER=felddy
     - secure: >-
         R8uSOMb+2aZV/bTK8EU3L5sYqNUiVZpS3kBU0XvVW3rnZgdW1QIHwLU2VOAv9kgpw1e
