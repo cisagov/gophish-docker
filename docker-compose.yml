@@ -2,53 +2,42 @@
 version: "3.7"
 
 secrets:
-  fullchain_pem:
-    file: ./src/secrets/fullchain.pem
-  privkey_pem:
-    file: ./src/secrets/privkey.pem
-  users_txt:
-    file: ./src/secrets/users.txt
-
+  config_json:
+    file: ./src/secrets/config.json
+  admin_fullchain_pem:
+    file: ./src/secrets/admin_fullchain.pem
+  admin_privkey_pem:
+    file: ./src/secrets/admin_privkey.pem
+  phish_fullchain_pem:
+    file: ./src/secrets/phish_fullchain.pem
+  phish_privkey_pem:
+    file: ./src/secrets/phish_privkey.pem
 
 services:
-  postfix:
+  gophish:
     build:
       context: .
       dockerfile: Dockerfile
-    image: dhsncats/postfix
+    image: dhsncats/gophish
     init: true
     restart: always
-    environment:
-      - PRIMARY_DOMAIN=example.com
-      - RELAY_IP=172.16.202.1/32
-    networks:
-      front:
-        ipv4_address: 172.16.202.2
     ports:
-      - target: "25"
-        published: "1025"
+      - target: 3333
+        published: 3333
         protocol: tcp
         mode: host
-      - target: "587"
-        published: "1587"
-        protocol: tcp
-        mode: host
-      - target: "993"
-        published: "1993"
+      - target: 8080
+        published: 3380
         protocol: tcp
         mode: host
     secrets:
-      - source: fullchain_pem
-        target: fullchain.pem
-      - source: privkey_pem
-        target: privkey.pem
-      - source: users_txt
-        target: users.txt
-
-networks:
-  front:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.16.202.0/24
+      - source: config_json
+        target: config.json
+      - source: admin_fullchain_pem
+        target: admin_fullchain.pem
+      - source: admin_privkey_pem
+        target: admin_privkey.pem
+      - source: phish_fullchain_pem
+        target: phish_fullchain.pem
+      - source: phish_privkey_pem
+        target: phish_privkey.pem
