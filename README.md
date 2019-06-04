@@ -1,6 +1,6 @@
-# docker-gophish 🐳🎣 #
+# gophish-docker 🎣🐳 #
 
-[![Build Status](https://travis-ci.com/cisagov/docker-gophish.svg?branch=develop)](https://travis-ci.com/cisagov/docker-gophish)
+[![Build Status](https://travis-ci.com/cisagov/gophish-docker.svg?branch=develop)](https://travis-ci.com/cisagov/gophish-docker)
 
 Creates a Docker container with an installation of the
 [gophish](https://getgophish.com) phishing framework.
