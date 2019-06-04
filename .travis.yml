@@ -43,5 +43,5 @@ deploy:
     script: docker push "${IMAGE_NAME}:latest" &&
       docker push "${IMAGE_NAME}:${version}"
     on:
-      tags: false
+      tags: true
       python: '3.7'
