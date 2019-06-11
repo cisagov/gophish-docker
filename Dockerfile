@@ -17,7 +17,7 @@ wget && \
 apt-get install -y sqlite3 libsqlite3-dev && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY ./bin ${SCRIPT_SRC}/bin
+COPY bin ${SCRIPT_SRC}/bin
 RUN chmod +x ${SCRIPT_SRC}/bin/*
 RUN ln -snf ${SCRIPT_SRC}/bin/* /usr/local/bin
 
@@ -30,5 +30,4 @@ rm -f gophish-v${GOPHISH_VERSION}-linux-64bit.zip
 RUN chmod +x gophish && ln -snf /run/secrets/config.json config.json
 
 EXPOSE 3333/TCP 8080/TCP
-
 ENTRYPOINT ["./gophish"]
