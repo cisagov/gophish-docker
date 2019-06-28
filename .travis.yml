@@ -7,6 +7,7 @@ env:
   global:
     - IMAGE_NAME=dhsncats/gophish
     - DOCKER_USER=felddy
+    # DOCKER_PW
     - secure: >-
         3gPdChpfNf3aDj1qX3Xr1jMnqWfE1ncnc/txCDLNX4fJLv4H+9CU04qs8ncWNKwofkO
         s4vHYei7uRG9Dv1/yXZPLpBWXRFFyGt+kIc5E5lxaRHukh0NtC3ZINf/MR+QmUBYYxo
@@ -25,16 +26,17 @@ cache:
     - "$HOME/.cache/pre-commit"
 install:
   - pip install --upgrade --requirement requirements-test.txt
-  - docker build --tag "$IMAGE_NAME" .
-before_script:
-  - docker-compose up --detach
+  - version=$(./bump_version.sh show)
+  - docker build
+    --tag "$IMAGE_NAME"
+    --build-arg GIT_COMMIT=$(git log -1 --format=%H)
+    --build-arg GIT_REMOTE=$(git remote get-url origin)
+    --build-arg VERSION=${version}
+    .
 script:
   - pre-commit run --all-files
   - pytest --verbose
-after_script:
-  - docker-compose down
 before_deploy:
-  - version=$(./bump_version.sh show)
   - IFS='.' read -r -a version_array <<< "$version"
   - docker login --username "$DOCKER_USER" --password "$DOCKER_PW"
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
@@ -47,7 +49,8 @@ deploy:
     script: docker push "${IMAGE_NAME}:latest" &&
       docker push "${IMAGE_NAME}:${version}" &&
       docker push "${IMAGE_NAME}:${version_array[0]}.${version_array[1]}" &&
-      docker push "${IMAGE_NAME}:${version_array[0]}"
+      docker push "${IMAGE_NAME}:${version_array[0]}" &&
+      ./push_readme.sh
     on:
       tags: true
       python: '3.7'
