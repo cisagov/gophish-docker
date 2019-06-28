@@ -1,5 +1,18 @@
+ARG GIT_COMMIT=unspecified
+ARG GIT_REMOTE=unspecified
+ARG VERSION=unspecified
+
 FROM debian:buster-slim
-MAINTAINER Mark Feldhousen <mark.feldhousen@trio.dhs.gov>
+
+ARG GIT_COMMIT
+ARG GIT_REMOTE
+ARG VERSION
+
+LABEL git_commit=${GIT_COMMIT}
+LABEL git_remote=${GIT_REMOTE}
+LABEL maintainer="mark.feldhousen@trio.dhs.gov"
+LABEL vendor="Cyber and Infrastructure Security Agency"
+LABEL version=${VERSION}
 
 ARG GOPHISH_VERSION="0.7.1"
 ARG CISA_UID=421
