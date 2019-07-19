@@ -4,7 +4,7 @@ MAINTAINER Mark Feldhousen <mark.feldhousen@trio.dhs.gov>
 ARG GOPHISH_VERSION="0.7.1"
 ARG CISA_UID=421
 ENV CISA_HOME="/home/cisa" \
-    SCRIPT_SRC="/user/src/scripts"
+    SCRIPT_DIR="/usr/local/bin"
 
 RUN addgroup --system --gid ${CISA_UID} cisa \
   && adduser --system --uid ${CISA_UID} --ingroup cisa cisa
@@ -17,9 +17,8 @@ wget && \
 apt-get install -y sqlite3 libsqlite3-dev && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY bin ${SCRIPT_SRC}/bin
-RUN chmod +x ${SCRIPT_SRC}/bin/*
-RUN ln -snf ${SCRIPT_SRC}/bin/* /usr/local/bin
+COPY bin/get-api-key ${SCRIPT_DIR}
+RUN chmod +x ${SCRIPT_DIR}/get-api-key
 
 USER cisa
 WORKDIR ${CISA_HOME}
