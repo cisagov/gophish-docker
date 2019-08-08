@@ -40,7 +40,7 @@ unzip gophish-v${GOPHISH_VERSION}-linux-64bit.zip && \
 rm -f gophish-v${GOPHISH_VERSION}-linux-64bit.zip
 
 RUN chmod +x gophish && ln -snf /run/secrets/config.json config.json && \
-mkdir data && ln -snf data/gophish.db gophish.db
+mkdir -p data && ln -snf data/gophish.db gophish.db
 
 EXPOSE 3333/TCP 8080/TCP
 ENTRYPOINT ["./gophish"]
