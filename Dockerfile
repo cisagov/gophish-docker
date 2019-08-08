@@ -31,7 +31,6 @@ apt-get install -y sqlite3 libsqlite3-dev && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY bin/get-api-key ${SCRIPT_DIR}
-RUN chmod +x ${SCRIPT_DIR}/get-api-key
 
 USER cisa
 WORKDIR ${CISA_HOME}
