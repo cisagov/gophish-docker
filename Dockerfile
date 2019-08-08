@@ -31,7 +31,6 @@ apt-get install -y sqlite3 libsqlite3-dev && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY bin/get-api-key ${SCRIPT_DIR}
-RUN chmod +x ${SCRIPT_DIR}/get-api-key
 
 USER cisa
 WORKDIR ${CISA_HOME}
@@ -39,7 +38,8 @@ RUN wget -nv https://github.com/gophish/gophish/releases/download/${GOPHISH_VERS
 unzip gophish-v${GOPHISH_VERSION}-linux-64bit.zip && \
 rm -f gophish-v${GOPHISH_VERSION}-linux-64bit.zip
 
-RUN chmod +x gophish && ln -snf /run/secrets/config.json config.json
+RUN chmod +x gophish && ln -snf /run/secrets/config.json config.json && \
+mkdir -p data && ln -snf data/gophish.db gophish.db
 
 EXPOSE 3333/TCP 8080/TCP
 ENTRYPOINT ["./gophish"]

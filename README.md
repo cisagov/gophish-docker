@@ -26,7 +26,7 @@ Or build `dhsncats/gophish` from source:
 
 ### Run ###
 
-    docker-compose run --rm example
+    docker-compose run --rm gophish
 
 ## Ports ##
 
