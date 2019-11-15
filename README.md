@@ -1,11 +1,13 @@
 # gophish-docker 🎣🐳 #
 
-[![Build Status](https://travis-ci.com/cisagov/gophish-docker.svg?branch=develop)](https://travis-ci.com/cisagov/gophish-docker)
+[![GitHub Build Status](https://github.com/cisagov/gophish-docker/workflows/build/badge.svg)](https://github.com/cisagov/gophish-docker/actions)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/gophish-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/gophish-docker/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/gophish-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/gophish-docker/context:python)
 
 ## Docker Image ##
 
-![MicroBadger Layers](https://img.shields.io/microbadger/layers/dhsncats/gophish.svg)
-![MicroBadger Size](https://img.shields.io/microbadger/image-size/dhsncats/gophish.svg)
+![MicroBadger Layers](https://img.shields.io/microbadger/layers/cisagov/gophish.svg)
+![MicroBadger Size](https://img.shields.io/microbadger/image-size/cisagov/gophish.svg)
 
 Creates a Docker container with an installation of the
 [gophish](https://getgophish.com) phishing framework.
@@ -14,11 +16,11 @@ Creates a Docker container with an installation of the
 
 ### Install ###
 
-Pull `dhsncats/gophish` from the Docker repository:
+Pull `cisagov/gophish` from the Docker repository:
 
-    docker pull dhsncats/gophish
+    docker pull cisagov/gophish
 
-Or build `dhsncats/gophish` from source:
+Or build `cisagov/gophish` from source:
 
     git clone https://github.com/cisagov/gophish-docker.git
     cd gophish-docker

@@ -6,7 +6,7 @@ import pytest
 import time
 
 READY_MESSAGE = "Starting admin server"
-TRAVIS_TAG = os.getenv("TRAVIS_TAG")
+RELEASE_TAG = os.getenv("RELEASE_TAG")
 VERSION_FILE = "src/version.txt"
 
 
@@ -33,7 +33,7 @@ def test_wait_for_ready(main_container):
 
 
 @pytest.mark.skipif(
-    TRAVIS_TAG in [None, ""], reason="this is not a release (TRAVIS_TAG not set)"
+    RELEASE_TAG in [None, ""], reason="this is not a release (RELEASE_TAG not set)"
 )
 def test_release_version():
     """Verify that release tag version agrees with the module version."""
@@ -42,8 +42,8 @@ def test_release_version():
         exec(f.read(), pkg_vars)  # nosec
     project_version = pkg_vars["__version__"]
     assert (
-        TRAVIS_TAG == f"v{project_version}"
-    ), "TRAVIS_TAG does not match the project version"
+        RELEASE_TAG == f"v{project_version}"
+    ), "RELEASE_TAG does not match the project version"
 
 
 def test_container_version_label_matches(main_container):
