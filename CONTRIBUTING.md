@@ -102,7 +102,7 @@ commands:
 cd gophish-docker
 pyenv virtualenv <python_version_to_use> gophish-docker
 pyenv local gophish-docker
-pip install -r requirements-dev.txt
+pip install --requirement requirements-dev.txt
 ```
 
 #### Installing the pre-commit hook ####
