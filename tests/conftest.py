@@ -5,13 +5,7 @@ https://docs.pytest.org/en/latest/writing_plugins.html#conftest-py-plugins
 # Third-Party Libraries
 import pytest
 
-<<<<<<< HEAD
-
 MAIN_SERVICE_NAME = "gophish"
-=======
-MAIN_SERVICE_NAME = "example"
-VERSION_SERVICE_NAME = f"{MAIN_SERVICE_NAME}-version"
->>>>>>> 4de6b59dd041229073cb15571ec5a1c005f6cad6
 
 
 @pytest.fixture(scope="session")

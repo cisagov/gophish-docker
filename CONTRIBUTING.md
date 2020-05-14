@@ -99,17 +99,10 @@ can create and configure the Python virtual environment with these
 commands:
 
 ```console
-<<<<<<< HEAD
 cd gophish-docker
 pyenv virtualenv <python_version_to_use> gophish-docker
 pyenv local gophish-docker
 pip install -r requirements-dev.txt
-=======
-cd skeleton-docker
-pyenv virtualenv <python_version_to_use> skeleton-docker
-pyenv local skeleton-docker
-pip install --requirement requirements-dev.txt
->>>>>>> 4de6b59dd041229073cb15571ec5a1c005f6cad6
 ```
 
 #### Installing the pre-commit hook ####

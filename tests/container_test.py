@@ -3,14 +3,10 @@
 
 # Standard Python Libraries
 import os
-<<<<<<< HEAD
-=======
 import time
 
 # Third-Party Libraries
->>>>>>> 4de6b59dd041229073cb15571ec5a1c005f6cad6
 import pytest
-import time
 
 READY_MESSAGE = "Starting admin server"
 RELEASE_TAG = os.getenv("RELEASE_TAG")
