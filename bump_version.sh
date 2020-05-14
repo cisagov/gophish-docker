@@ -7,6 +7,7 @@ set -o errexit
 set -o pipefail
 
 VERSION_FILE=src/version.txt
+DOCKER_COMPOSE_FILE=docker-compose.yml
 
 HELP_INFORMATION="bump_version.sh (show|major|minor|patch|prerelease|build|finalize)"
 
@@ -23,7 +24,9 @@ else
             tmp_file=/tmp/version.$$
             sed "s/$old_version/$new_version/" $VERSION_FILE > $tmp_file
             mv $tmp_file $VERSION_FILE
-            git add $VERSION_FILE
+            sed "s/$old_version/$new_version/" $DOCKER_COMPOSE_FILE > $tmp_file
+            mv $tmp_file $DOCKER_COMPOSE_FILE
+            git add $VERSION_FILE $DOCKER_COMPOSE_FILE
             git commit -m"Bumping version from $old_version to $new_version"
             git push
             ;;
@@ -33,7 +36,9 @@ else
             tmp_file=/tmp/version.$$
             sed "s/$old_version/$new_version/" $VERSION_FILE > $tmp_file
             mv $tmp_file $VERSION_FILE
-            git add $VERSION_FILE
+            sed "s/$old_version/$new_version/" $DOCKER_COMPOSE_FILE > $tmp_file
+            mv $tmp_file $DOCKER_COMPOSE_FILE
+            git add $VERSION_FILE $DOCKER_COMPOSE_FILE
             git commit -m"Bumping version from $old_version to $new_version"
             git push
             ;;
