@@ -1,9 +1,12 @@
 #!/usr/bin/env pytest -vs
 """Tests for gophish container."""
 
+# Standard Python Libraries
 import os
-import pytest
 import time
+
+# Third-Party Libraries
+import pytest
 
 READY_MESSAGE = "Starting admin server"
 RELEASE_TAG = os.getenv("RELEASE_TAG")
