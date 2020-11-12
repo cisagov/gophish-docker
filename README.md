@@ -6,8 +6,9 @@
 
 ## Docker Image ##
 
-![MicroBadger Layers](https://img.shields.io/microbadger/layers/cisagov/gophish.svg)
-![MicroBadger Size](https://img.shields.io/microbadger/image-size/cisagov/gophish.svg)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cisagov/gophish)](https://hub.docker.com/r/cisagov/gophish)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/cisagov/gophish)](https://hub.docker.com/r/cisagov/gophish)
+[![Platforms](https://img.shields.io/badge/platforms-amd64%20%7C%20arm%2Fv6%20%7C%20arm%2Fv7%20%7C%20arm64%20%7C%20ppc64le%20%7C%20s390x-blue)](https://hub.docker.com/r/cisagov/gophish/tags)
 
 Creates a Docker container with an installation of the
 [gophish](https://getgophish.com) phishing framework.
