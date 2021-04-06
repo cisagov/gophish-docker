@@ -34,6 +34,7 @@ WORKDIR ${CISA_HOME}
 # pull requests have been merged; including, but potentially not limited to:
 # - https://github.com/gophish/gophish/pull/1484
 # - https://github.com/gophish/gophish/pull/1486
+# See https://github.com/cisagov/gophish-docker/issues/25 for details.
 RUN wget -nv https://github.com/cisagov/gophish/releases/download/v${GOPHISH_VERSION}/gophish-v${GOPHISH_VERSION}-linux-64bit.zip && \
 unzip gophish-v${GOPHISH_VERSION}-linux-64bit.zip && \
 rm -f gophish-v${GOPHISH_VERSION}-linux-64bit.zip
