@@ -19,7 +19,7 @@ services:
       # Note build arguments here are for builds using docker-compose (pytest)
       # The CI build workflow uses docker and passes the value from bump_version
       args:
-        - VERSION=0.0.5
+        - VERSION=0.0.6
       context: .
       dockerfile: Dockerfile
     image: cisagov/gophish
