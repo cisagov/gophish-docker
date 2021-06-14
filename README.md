@@ -201,7 +201,7 @@ Build the image locally using this git repository as the [build context](https:/
 docker build \
   --build-arg VERSION=0.0.1 \
   --tag cisagov/gophish:0.0.1 \
-  https://github.com/cisagov/gophish.git#develop
+  https://github.com/cisagov/gophish-docker.git#develop
 ```
 
 ## Cross-platform builds ##
@@ -214,8 +214,8 @@ Docker:
    or the command line:
 
     ```console
-    git clone https://github.com/cisagov/gophish.git
-    cd gophish
+    git clone https://github.com/cisagov/gophish-docker.git
+    cd gophish-docker
     ```
 
 1. Create the `Dockerfile-x` file with `buildx` platform support:
