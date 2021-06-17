@@ -7,11 +7,8 @@ set -o errexit
 set -o pipefail
 
 VERSION_FILE=src/version.txt
-<<<<<<< HEAD
 DOCKER_COMPOSE_FILE=docker-compose.yml
-=======
 README_FILE=README.md
->>>>>>> ce74596cede721a672a18d2d1712bc0b360b8ea0
 
 HELP_INFORMATION="bump_version.sh (show|major|minor|patch|prerelease|build|finalize)"
 
@@ -28,17 +25,13 @@ else
       tmp_file=/tmp/version.$$
       sed "s/$old_version/$new_version/" $VERSION_FILE > $tmp_file
       mv $tmp_file $VERSION_FILE
-<<<<<<< HEAD
       sed "s/$old_version/$new_version/" $DOCKER_COMPOSE_FILE > $tmp_file
       mv $tmp_file $DOCKER_COMPOSE_FILE
       git add $VERSION_FILE $DOCKER_COMPOSE_FILE
-      git commit -m"Bumping version from $old_version to $new_version"
-=======
       sed "s/$old_version/$new_version/" $README_FILE > $tmp_file
       mv $tmp_file $README_FILE
       git add $VERSION_FILE $README_FILE
-      git commit -m"Bump version from $old_version to $new_version"
->>>>>>> ce74596cede721a672a18d2d1712bc0b360b8ea0
+      git commit -m"Bumping version from $old_version to $new_version"
       git push
       ;;
     finalize)
@@ -47,17 +40,13 @@ else
       tmp_file=/tmp/version.$$
       sed "s/$old_version/$new_version/" $VERSION_FILE > $tmp_file
       mv $tmp_file $VERSION_FILE
-<<<<<<< HEAD
       sed "s/$old_version/$new_version/" $DOCKER_COMPOSE_FILE > $tmp_file
       mv $tmp_file $DOCKER_COMPOSE_FILE
       git add $VERSION_FILE $DOCKER_COMPOSE_FILE
-      git commit -m"Bumping version from $old_version to $new_version"
-=======
       sed "s/$old_version/$new_version/" $README_FILE > $tmp_file
       mv $tmp_file $README_FILE
       git add $VERSION_FILE $README_FILE
-      git commit -m"Bump version from $old_version to $new_version"
->>>>>>> ce74596cede721a672a18d2d1712bc0b360b8ea0
+      git commit -m"Bumping version from $old_version to $new_version"
       git push
       ;;
     show)
