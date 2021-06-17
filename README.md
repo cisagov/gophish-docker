@@ -169,18 +169,6 @@ The following ports are exposed by this container:
 
 | Port | Purpose        |
 |------|----------------|
-| 3333 | Admin web server |
-| 8080 | Phishing web server |
-
-The sample [Docker composition](docker-compose.yml) publishes the
-exposed ports at 3333 and 3380, respectively.
-
-## Ports ##
-
-The following ports are exposed by this container:
-
-| Port | Purpose        |
-|------|----------------|
 | 8080 | Example only; nothing is actually listening on the port |
 
 The sample [Docker composition](docker-compose.yml) publishes the
