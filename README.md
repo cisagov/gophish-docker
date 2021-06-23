@@ -20,7 +20,7 @@ Creates a Docker container with an installation of the
 To run the `cisagov/gophish` image via Docker:
 
 ```console
-docker run cisagov/gophish:0.0.1
+docker run cisagov/gophish:0.0.6
 ```
 
 ### Running with Docker Compose ###
@@ -33,7 +33,7 @@ docker run cisagov/gophish:0.0.1
 
     services:
       gophish:
-        image: cisagov/gophish:0.0.1
+        image: cisagov/gophish:0.0.6
         ports:
           - target: 3333
             published: 3333
@@ -81,7 +81,7 @@ environment variables.  See the
 
     services:
       gophish:
-        image: cisagov/gophish:0.0.1
+        image: cisagov/gophish:0.0.6
         ports:
           - target: 3333
             published: 3333
@@ -131,7 +131,7 @@ environment variables.  See the
 1. Pull the new image:
 
     ```console
-    docker pull cisagov/gophish:0.0.1
+    docker pull cisagov/gophish:0.0.6
     ```
 
 1. Recreate and run the container by following the [previous instructions](#running-with-docker).
@@ -141,13 +141,13 @@ environment variables.  See the
 The images of this container are tagged with [semantic
 versions](https://semver.org) of the underlying gophish project that they
 containerize.  It is recommended that most users use a version tag (e.g.
-`:0.0.1`).
+`:0.0.6`).
 
 | Image:tag | Description |
 |-----------|-------------|
-|`cisagov/gophish:1.2.3`| An exact release version. |
-|`cisagov/gophish:1.2`| The most recent release matching the major and minor version numbers. |
-|`cisagov/gophish:1`| The most recent release matching the major version number. |
+|`cisagov/gophish:0.0.6`| An exact release version. |
+|`cisagov/gophish:0.0`| The most recent release matching the major and minor version numbers. |
+|`cisagov/gophish:0`| The most recent release matching the major version number. |
 |`cisagov/gophish:edge` | The most recent image built from a merge into the `develop` branch of this repository. |
 |`cisagov/gophish:nightly` | A nightly build of the `develop` branch of this repository. |
 |`cisagov/gophish:latest`| The most recent release image pushed to a container registry.  Pulling an image using the `:latest` tag [should be avoided.](https://vsupalov.com/docker-latest-tag/) |
@@ -210,8 +210,8 @@ Build the image locally using this git repository as the [build context](https:/
 
 ```console
 docker build \
-  --build-arg VERSION=0.0.1 \
-  --tag cisagov/gophish:0.0.1 \
+  --build-arg VERSION=0.0.6 \
+  --tag cisagov/gophish:0.0.6 \
   https://github.com/cisagov/gophish-docker.git#develop
 ```
 
@@ -241,9 +241,9 @@ Docker:
     docker buildx build \
       --file Dockerfile-x \
       --platform linux/amd64 \
-      --build-arg VERSION=0.0.1 \
+      --build-arg VERSION=0.0.6 \
       --output type=docker \
-      --tag cisagov/gophish:0.0.1 .
+      --tag cisagov/gophish:0.0.6 .
     ```
 
 ## Contributing ##
