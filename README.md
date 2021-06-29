@@ -199,7 +199,7 @@ There are no optional environment variables.
 
 | Filename     | Purpose |
 |--------------|---------|
-| `config.json` | gophish configuration file |
+| `config.json` | Gophish configuration file |
 | `admin_fullchain.pem` | public key for admin port |
 | `admin_privkey.pem` | private key for admin port |
 | `phish_fullchain.pem` | public key for phishing port |
