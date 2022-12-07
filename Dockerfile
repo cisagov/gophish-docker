@@ -78,8 +78,8 @@ RUN apt-get remove --quiet --quiet $INSTALL_DEPS
 ###
 # Clean up aptitude cruft
 ###
-RUN apt-get --quiet --quiet clean
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get --quiet --quiet clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ###
 # Setup working directory and entrypoint
