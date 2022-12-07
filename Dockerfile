@@ -1,9 +1,8 @@
-# The version of Gophish to install
-ARG GOPHISH_VERSION="0.11.0-cisa.1"
 
 FROM debian:bullseye-slim
 
-ARG GOPHISH_VERSION
+# The version of Gophish to install
+ARG GOPHISH_VERSION="0.11.0-cisa.1"
 
 # The directory where the get-api-key script will be installed
 ENV SCRIPT_DIR="/usr/local/bin"
