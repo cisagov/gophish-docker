@@ -67,7 +67,7 @@ RUN wget --no-verbose https://github.com/cisagov/gophish/releases/download/v${GO
 RUN chmod +x ${CISA_HOME}/gophish \
     && ln --symbolic --no-dereference --force /run/secrets/config.json ${CISA_HOME}/config.json \
     && mkdir --parents ${CISA_HOME}/data \
-    && ln -snf ${CISA_HOME}/data/gophish.db ${CISA_HOME}/gophish.db
+    && ln --symbolic --no-dereference --force ${CISA_HOME}/data/gophish.db ${CISA_HOME}/gophish.db
 
 ###
 # Remove install dependencies
@@ -78,12 +78,12 @@ RUN apt-get remove --quiet --quiet $INSTALL_DEPS
 # Clean up aptitude cruft
 ###
 RUN apt-get --quiet --quiet clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm --recursive --force /var/lib/apt/lists/*
 
 ###
 # Setup working directory and entrypoint
 ###
-RUN chown -R ${CISA_USER}:${CISA_GROUP} ${CISA_HOME}
+RUN chown --recursive ${CISA_USER}:${CISA_GROUP} ${CISA_HOME}
 
 ###
 # Prepare to run
