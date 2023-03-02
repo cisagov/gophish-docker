@@ -1,5 +1,5 @@
 
-FROM debian:bullseye-slim
+FROM debian:11.6-slim
 
 # The version of Gophish to install
 ARG GOPHISH_VERSION="0.11.0-cisa.1"
