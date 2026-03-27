@@ -22,15 +22,15 @@ def test_container_count(dockerc):
 
 def test_wait_for_ready(main_container):
     """Wait for container to be ready."""
-    TIMEOUT = 10
-    for i in range(TIMEOUT):
+    timeout = 10
+    for _i in range(timeout):
         if READY_MESSAGE in main_container.logs():
             break
         time.sleep(1)
     else:
         raise Exception(
             f"Container does not seem ready.  "
-            f'Expected "{READY_MESSAGE}" in the log within {TIMEOUT} seconds.'
+            f'Expected "{READY_MESSAGE}" in the log within {timeout} seconds.'
         )
 
 
@@ -70,9 +70,10 @@ def test_release_version(project_version):
 #     # make sure container exited if running test isolated
 #     dockerc.wait(version_container.id)
 #     log_version = semver.version.Version.parse(version_container.logs().strip())
-#     assert log_version == semver.version.Version.parse(
-#         project_version
-#     ), f"Container version output to log does not match project version file {VERSION_FILE}"
+#     assert log_version == semver.version.Version.parse(project_version), (
+#         "Container version output to log does not match project version file "
+#         f"{VERSION_FILE}"
+#     )
 
 
 @pytest.mark.skipif(
