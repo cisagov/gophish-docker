@@ -1,6 +1,6 @@
 # Official Docker images are in the form library/<app> while non-official
 # images are in the form <user>/<app>.
-FROM docker.io/library/debian:bullseye-slim AS compile-stage
+FROM docker.io/library/debian:trixie-slim AS compile-stage
 
 ###
 # Unprivileged user variables
@@ -35,7 +35,7 @@ RUN wget --no-verbose https://github.com/cisagov/gophish/releases/download/v${GO
 
 # Official Docker images are in the form library/<app> while non-official
 # images are in the form <user>/<app>.
-FROM docker.io/library/debian:bullseye-slim AS build-stage
+FROM docker.io/library/debian:trixie-slim AS build-stage
 
 ###
 # For a list of pre-defined annotation keys and value types see:
